@@ -3,7 +3,7 @@ from ursina.prefabs.first_person_controller import FirstPersonController
 from chunk import ChunkGenerator
 
 # window settings
-window.fullscreen = True
+#window.fullscreen = True
 
 app = Ursina()
 
@@ -13,7 +13,7 @@ player = FirstPersonController(model = "cube")
 player.gravity = False
 
 
-ChunkGenerator(player)
+cg = ChunkGenerator(player)
 
 def input(key):
     # game escape
@@ -21,6 +21,7 @@ def input(key):
         quit()
 
 def update():
+    cg.update()
     if held_keys["space"]:
         player.y += 10*time.dt
 
